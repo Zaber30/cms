@@ -6,11 +6,13 @@ use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Ramsey\Collection\Collection;
+use Illuminate\Support\Str;
 
 class PictureController extends Controller
-{
+{    
     public function store(Request $request)
-    {
+    {   Auth::user();
+        
          // Validate the incoming request
     $request->validate([
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // You can adjust validation as needed
